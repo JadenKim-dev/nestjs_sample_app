@@ -6,10 +6,8 @@ export class User extends BaseEntity {
   id: number;
 
   @Column()
-  @IsString({ always: true })
   username: string;
 
   @Column()
-  @IsString({ always: true })
   email: string;
 }
