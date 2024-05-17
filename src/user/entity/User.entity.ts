@@ -9,5 +9,6 @@ export class User extends BaseEntity {
   username: string;
 
   @Column()
+  @IsString({ groups: ['readMany'] })
   email: string;
 }
