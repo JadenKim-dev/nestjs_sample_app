@@ -6,9 +6,9 @@ export class User extends BaseEntity {
   id: number;
 
   @Column()
+  @IsString({ groups: ['update'] })
   username: string;
 
   @Column()
-  @IsString({ groups: ['readMany'] })
   email: string;
 }
