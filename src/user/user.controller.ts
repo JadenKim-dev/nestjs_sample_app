@@ -1,23 +1,25 @@
 import { Controller } from '@nestjs/common';
-import { Crud, CrudController, CrudService } from '@nestjs-library/crud';
+import { Crud, CrudService } from '@nestjs-library/crud';
 import { User } from './entity/User.entity';
-import { UserService } from './user.service';
 import { UserCreateRequestDto } from './dto/user-create.request.dto';
 import { UserUpdateRequestDto } from './dto/user-update.request.dto';
+import { ApiTags, PickType } from '@nestjs/swagger';
+import { UserService } from './user.service';
 
+@ApiTags('user')
 @Crud({
   entity: User,
   logging: true,
   routes: {
     search: {
-      paginationType: 'offset',
+      paginationType: 'cursor',
     },
     readMany: {
-      paginationType: 'offset',
+      paginationType: 'cursor',
     },
     create: {
       swagger: {
-        body: UserCreateRequestDto,
+        body: PickType(UserCreateRequestDto, ['username']),
       },
     },
     update: {
