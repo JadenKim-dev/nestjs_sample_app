@@ -5,6 +5,7 @@ import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { createTypeOrmOptions } from './config/typeorm.config';
+import { UserProfileModule } from './user-profile/user-profile.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { createTypeOrmOptions } from './config/typeorm.config';
       useFactory: createTypeOrmOptions,
       inject: [ConfigService],
     }),
+    UserProfileModule,
   ],
   controllers: [AppController],
   providers: [AppService],
