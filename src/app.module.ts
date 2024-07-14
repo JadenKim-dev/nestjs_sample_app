@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { createTypeOrmOptions } from './config/typeorm.config';
 import { UserProfileModule } from './user-profile/user-profile.module';
+import { PriceTypeModule } from './price-type/price-type.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { UserProfileModule } from './user-profile/user-profile.module';
       inject: [ConfigService],
     }),
     UserProfileModule,
+    PriceTypeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
